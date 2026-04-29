@@ -2,6 +2,7 @@ function PokemonCard({ pokemon, onClick }) {
   const type = pokemon.types[0].type.name;
 
   return (
+    // pokemon card
     <div className={`card ${type}`} onClick={onClick}>
       <p>#{pokemon.id}</p>
       <h2>
