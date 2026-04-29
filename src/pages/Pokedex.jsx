@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import PokemonCard from "../components/PokemonCard";
 
 function Pokedex() {
   // State
   const [pokemon, setPokemon] = useState([]);
-  const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
-  const [nextUrl, setNextUrl] = useState(null);
-  const [prevUrl, setPrevUrl] = useState(null);
+  const [page, setPage] = useState(0);
+  const limit = 20;
   const navigate = useNavigate();
 
   // Fetch data
   useEffect(() => {
-    fetch(url)
+    const offset = page * limit;
+
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
       .then((res) => res.json())
       .then(async (data) => {
         const detailed = await Promise.all(
@@ -20,15 +22,15 @@ function Pokedex() {
         );
 
         setPokemon(detailed);
-        setNextUrl(data.next);
-        setPrevUrl(data.previous);
       });
-  }, [url]);
+  }, [page, limit]);
 
+  
   return (
     <div>
       <h1>Pokedex</h1>
-      <nav className="navbar">
+
+       <nav className="navbar">
         <h2 className="logo">Pokedex</h2>
 
         <div className="nav-links">
@@ -36,36 +38,29 @@ function Pokedex() {
           <Link to="/about">About</Link>
         </div>
       </nav>
-
+     
       {/* Pagination buttons */}
+
       <div className="pagination">
-        <button disabled={!prevUrl} onClick={() => setUrl(prevUrl)}>
+        <button
+          disabled={page === 0}
+          onClick={() => setPage((prev) => prev - 1)}
+        >
           Previous
         </button>
 
-        <button disabled={!nextUrl} onClick={() => setUrl(nextUrl)}>
-          Next
-        </button>
+        <button onClick={() => setPage((prev) => prev + 1)}>Next</button>
       </div>
 
       {/* Pokémon list */}
       <div className="grid">
-        {pokemon.map((p) => {
-          const type = p.types[0].type.name;
-
-          return (
-            <div
-              key={p.name}
-              className={`card ${type}`}
-              onClick={() => navigate(`/pokemon/${p.id}`)}
-            >
-              <p>#{p.id}</p>
-              <h2>{p.name}</h2>
-
-              <img src={p.sprites.front_default} />
-            </div>
-          );
-        })}
+        {pokemon.map((p) => (
+          <PokemonCard
+            key={p.id}
+            pokemon={p}
+            onClick={() => navigate(`/pokemon/${p.id}`)}
+          />
+        ))}
       </div>
     </div>
   );
