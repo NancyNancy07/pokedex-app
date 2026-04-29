@@ -1,0 +1,198 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 30px;
+  background: #111;
+  color: white;
+}
+
+/* Logo */
+.logo {
+  margin: 0;
+}
+
+/* Links container */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Links */
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+  color: #facc15; /* yellow */
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.card {
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  background: #4caf50; /* temporary */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.pagination button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.details {
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px;
+}
+
+/* Page layout */
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Card */
+.detail-card {
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+/* Image */
+.pokemon-img {
+  width: 120px;
+  height: 120px;
+}
+
+/* Info */
+.info {
+  margin-top: 15px;
+}
+
+/* Back button */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* 🔥 Type colors */
+.grass {
+  background: #78c850;
+}
+.fire {
+  background: #f08030;
+}
+.water {
+  background: #6890f0;
+}
+.electric {
+  background: #f8d030;
+  color: black;
+}
+.psychic {
+  background: #f85888;
+}
+.ice {
+  background: #98d8d8;
+  color: black;
+}
+.dragon {
+  background: #7038f8;
+}
+.dark {
+  background: #705848;
+}
+.fairy {
+  background: #ee99ac;
+}
+.normal {
+  background: #a8a878;
+}
+.fighting {
+  background: #c03028;
+}
+.flying {
+  background: #a890f0;
+}
+.poison {
+  background: #a040a0;
+}
+.ground {
+  background: #e0c068;
+  color: black;
+}
+.rock {
+  background: #b8a038;
+}
+.bug {
+  background: #a8b820;
+}
+.ghost {
+  background: #705898;
+}
+.steel {
+  background: #b8b8d0;
+  color: black;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  line-height: 1.6;
+  text-align: left;
+}
