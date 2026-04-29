@@ -25,12 +25,11 @@ function Pokedex() {
       });
   }, [page, limit]);
 
-  
   return (
     <div>
       <h1>Pokedex</h1>
 
-       <nav className="navbar">
+      <nav className="navbar">
         <h2 className="logo">Pokedex</h2>
 
         <div className="nav-links">
@@ -38,7 +37,7 @@ function Pokedex() {
           <Link to="/about">About</Link>
         </div>
       </nav>
-     
+
       {/* Pagination buttons */}
 
       <div className="pagination">
