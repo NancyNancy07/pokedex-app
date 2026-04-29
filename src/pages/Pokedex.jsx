@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import PokemonCard from "../components/PokemonCard";
+import PokemonCard from "../newcomponents/PokemonCard";
 
 function Pokedex() {
   // State
